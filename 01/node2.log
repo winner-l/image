@@ -1,0 +1,248 @@
+[root@host2 n2]# docker-compose logs -f 
+Attaching to node2
+node2    | + '[' m = - ']'
+node2    | + CFG=/etc/mysql/node.cnf
+node2    | + wantHelp=
+node2    | + for arg in "$@"
+node2    | + case "$arg" in
+node2    | + vault_secret=/etc/mysql/vault-keyring-secret/keyring_vault.conf
+node2    | + '[' -f /etc/mysql/vault-keyring-secret/keyring_vault.conf ']'
+node2    | + file_env XTRABACKUP_PASSWORD xtrabackup
+node2    | + set +o xtrace
+node2    | + file_env CLUSTERCHECK_PASSWORD clustercheck
+node2    | + set +o xtrace
+node2    | ++ hostname -f
+node2    | + NODE_NAME=host2
+node2    | + NODE_PORT=3306
+node2    | + '[' -n '' ']'
+node2    | + '[' -n '' ']'
+node2    | + : checking incoming cluster parameters
+node2    | ++ hostname -I
+node2    | ++ awk ' { print $1 } '
+node2    | + NODE_IP=172.22.0.68
+node2    | + sed -r 's|^[#]?wsrep_node_address=.*$|wsrep_node_address=172.22.0.68|' /etc/mysql/node.cnf
+node2    | + sed -r 's|^[#]?wsrep_node_incoming_address=.*$|wsrep_node_incoming_address=host2:3306|' /etc/mysql/node.cnf
+node2    | + sed -r 's|^[#]?wsrep_sst_auth=.*$|wsrep_sst_auth='\''xtrabackup:Citc@20241406Z'\''|' /etc/mysql/node.cnf
+node2    | + [[ -n node1 ]]
+node2    | + sed -r 's|^[#]?wsrep_cluster_address=.*$|wsrep_cluster_address=gcomm://node1|' /etc/mysql/node.cnf
+node2    | + [[ -n PXC ]]
+node2    | + sed -r 's|^[#]?wsrep_cluster_name=.*$|wsrep_cluster_name=PXC|' /etc/mysql/node.cnf
+node2    | + '[' -z node1 ']'
+node2    | + '[' mysqld = mysqld -a -z '' ']'
+node2    | + mysqld --version
+node2    | + tee /tmp/version_info
+node2    | mysqld  Ver 5.7.44-48-57 for Linux on x86_64 (Percona XtraDB Cluster (GPL), Release rel48, Revision 32be3bd, WSREP version 31.65, wsrep_31.65)
+node2    | ++ _get_config datadir mysqld
+node2    | ++ local conf=datadir
+node2    | ++ shift
+node2    | ++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
+node2    | +++ mktemp -u
+node2    | ++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.HlBUmyNkl7
+node2    | + DATADIR=/var/lib/mysql/
+node2    | + '[' -f /var/lib/mysql//version_info ']'
+node2    | + mysqld --version
+node2    | + grep -v wsrep_sst_auth /etc/mysql/node.cnf
+node2    | [mysqld]
+node2    | 
+node2    | ignore-db-dir=lost+found
+node2    | datadir=/var/lib/mysql
+node2    | socket=/tmp/mysql.sock
+node2    | skip-host-cache
+node2    | 
+node2    | #coredumper
+node2    | #server_id=0
+node2    | binlog_format=ROW
+node2    | default_storage_engine=InnoDB
+node2    | 
+node2    | innodb_flush_log_at_trx_commit  = 2
+node2    | innodb_flush_method             = O_DIRECT
+node2    | innodb_file_per_table           = 1
+node2    | innodb_autoinc_lock_mode=2
+node2    | 
+node2    | bind_address = 0.0.0.0
+node2    | 
+node2    | wsrep_slave_threads=2
+node2    | wsrep_cluster_address=gcomm://node1
+node2    | wsrep_provider=/usr/lib64/galera3/libgalera_smm.so
+node2    | 
+node2    | wsrep_cluster_name=PXC
+node2    | wsrep_node_address=172.22.0.68
+node2    | wsrep_node_incoming_address=host2:3306
+node2    | 
+node2    | wsrep_sst_method=xtrabackup-v2
+node2    | 
+node2    | [client]
+node2    | socket=/tmp/mysql.sock
+node2    | 
+node2    | [sst]
+node2    | progress=/var/lib/mysql/sst_in_progress
+node2    | ss
+node2    | + wsrep_start_position_opt=
+node2    | + '[' mysqld = mysqld -a -z '' ']'
+node2    | ++ _get_config datadir mysqld
+node2    | ++ local conf=datadir
+node2    | ++ shift
+node2    | ++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
+node2    | +++ mktemp -u
+node2    | ++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.sQuaabVEH6
+node2    | + DATADIR=/var/lib/mysql/
+node2    | + grastate_loc=/var/lib/mysql//grastate.dat
+node2    | + '[' -s /var/lib/mysql//grastate.dat -a -d /var/lib/mysql//mysql ']'
+node2    | + '[' -z '' -a -d /var/lib/mysql//mysql ']'
+node2    | + '[' '!' -z '' ']'
+node2    | + '[' '!' -z '' ']'
+node2    | + '[' '!' -z '' ']'
+node2    | + CALL_HOME_OPTIONAL_PARAMS+=' -t 7'
+node2    | + '[' '!' -z '' ']'
+node2    | + CALL_HOME_OPTIONAL_PARAMS+=' -c 2'
+node2    | + /call-home.sh -f PRODUCT_FAMILY_PXC -v 5.7.44-31.65-1 -d DOCKER -s el8 -t 7 -c 2
+node2    | + :
+node2    | + exec mysqld
+node2    | 2024-07-18T09:37:07.728908Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+node2    | 2024-07-18T09:37:07.732018Z 0 [Note] mysqld (mysqld 5.7.44-48-57) starting as process 1 ...
+node2    | 2024-07-18T09:37:07.736142Z 0 [Note] WSREP: Setting wsrep_ready to false
+node2    | 2024-07-18T09:37:07.736167Z 0 [Note] WSREP: No pre-stored wsrep-start position found. Skipping position initialization.
+node2    | 2024-07-18T09:37:07.736174Z 0 [Note] WSREP: wsrep_load(): loading provider library '/usr/lib64/galera3/libgalera_smm.so'
+node2    | 2024-07-18T09:37:07.737505Z 0 [Note] WSREP: wsrep_load(): Galera 3.65(rf47405c) by Codership Oy <info@codership.com> loaded successfully.
+node2    | 2024-07-18T09:37:07.737582Z 0 [Note] WSREP: CRC-32C: using 64-bit x86 acceleration.
+node2    | 2024-07-18T09:37:07.738184Z 0 [Warning] WSREP: Could not open state file for reading: '/var/lib/mysql//grastate.dat'
+node2    | 2024-07-18T09:37:07.738194Z 0 [Warning] WSREP: No persistent state found. Bootstraping with default state
+node2    | 2024-07-18T09:37:07.738245Z 0 [Note] WSREP: Found saved state: 00000000-0000-0000-0000-000000000000:-1, safe_to_bootstrap: 1
+node2    | 2024-07-18T09:37:07.755046Z 0 [Note] WSREP: Passing config to GCS: base_dir = /var/lib/mysql/; base_host = 172.22.0.68; base_port = 4567; cert.log_conflicts = no; cert.optimistic_pa = yes; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 10; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 4; evs.view_forget_timeout = PT24H; gcache.dir = /var/lib/mysql/; gcache.freeze_purge_at_seqno = -1; gcache.keep_pages_count = 0; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /var/lib/mysql//galera.cache; gcache.page_size = 128M; gcache.recover = no; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1; gcs.fc_limit = 100; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0; pc.announce_timeout = PT3S; pc.checksum = false; pc.ignore_quorum = false; pc.ignore_sb = false; pc.npvo = false; pc.recovery = true; pc.version = 0; pc.wait_prim = true; pc.wait_prim_timeout = PT30S; pc.weight = 1; protonet.backend = asio; protonet.version = 0; repl.causal_read_timeout = PT30S; repl.commit_order = 3; repl.key_format = FLAT8; repl.max_ws_size = 2147483647; repl.proto_max = 9; socket.checksum = 2; socket.recv_buf_size = auto; socket.send_buf_size = auto; 
+node2    | 2024-07-18T09:37:07.781009Z 0 [Note] WSREP: GCache history reset: 00000000-0000-0000-0000-000000000000:0 -> 00000000-0000-0000-0000-000000000000:-1
+node2    | 2024-07-18T09:37:07.782288Z 0 [Note] WSREP: Assign initial position for certification: -1, protocol version: -1
+node2    | 2024-07-18T09:37:07.782313Z 0 [Note] WSREP: Preparing to initiate SST/IST
+node2    | 2024-07-18T09:37:07.782317Z 0 [Note] WSREP: Starting replication
+node2    | 2024-07-18T09:37:07.782336Z 0 [Note] WSREP: Setting initial position to 00000000-0000-0000-0000-000000000000:-1
+node2    | 2024-07-18T09:37:07.782754Z 0 [Note] WSREP: Using CRC-32C for message checksums.
+node2    | 2024-07-18T09:37:07.782890Z 0 [Note] WSREP: gcomm thread scheduling priority set to other:0 
+node2    | 2024-07-18T09:37:07.783041Z 0 [Note] WSREP: Fail to access the file (/var/lib/mysql//gvwstate.dat) error (No such file or directory). It is possible if node is booting for first time or re-booting after a graceful shutdown
+node2    | 2024-07-18T09:37:07.783048Z 0 [Note] WSREP: Restoring primary-component from disk failed. Either node is booting for first time or re-booting after a graceful shutdown
+node2    | 2024-07-18T09:37:07.783251Z 0 [Note] WSREP: GMCast version 0
+node2    | 2024-07-18T09:37:07.783589Z 0 [Note] WSREP: (4cc520a9, 'tcp://0.0.0.0:4567') listening at tcp://0.0.0.0:4567
+node2    | 2024-07-18T09:37:07.783595Z 0 [Note] WSREP: (4cc520a9, 'tcp://0.0.0.0:4567') multicast: , ttl: 1
+node2    | 2024-07-18T09:37:07.783910Z 0 [Note] WSREP: EVS version 0
+node2    | 2024-07-18T09:37:07.784017Z 0 [Note] WSREP: gcomm: connecting to group 'PXC', peer 'node1:'
+node2    | 2024-07-18T09:37:07.789214Z 0 [Note] WSREP: (4cc520a9, 'tcp://0.0.0.0:4567') connection established to 9ff46554 tcp://172.22.0.67:4567
+node2    | 2024-07-18T09:37:07.789483Z 0 [Note] WSREP: (4cc520a9, 'tcp://0.0.0.0:4567') turning message relay requesting on, nonlive peers: 
+node2    | 2024-07-18T09:37:08.049520Z 0 [Note] WSREP: declaring 9ff46554 at tcp://172.22.0.67:4567 stable
+node2    | 2024-07-18T09:37:08.050757Z 0 [Note] WSREP: Node 9ff46554 state primary
+node2    | 2024-07-18T09:37:08.051763Z 0 [Note] WSREP: Current view of cluster as seen by this node
+node2    | view (view_id(PRIM,4cc520a9,2)
+node2    | memb {
+node2    | 	4cc520a9,0
+node2    | 	9ff46554,0
+node2    | 	}
+node2    | joined {
+node2    | 	}
+node2    | left {
+node2    | 	}
+node2    | partitioned {
+node2    | 	}
+node2    | )
+node2    | 2024-07-18T09:37:08.051812Z 0 [Note] WSREP: Save the discovered primary-component to disk
+node2    | 2024-07-18T09:37:08.284687Z 0 [Note] WSREP: gcomm: connected
+node2    | 2024-07-18T09:37:08.285232Z 0 [Note] WSREP: Shifting CLOSED -> OPEN (TO: 0)
+node2    | 2024-07-18T09:37:08.285786Z 0 [Note] WSREP: New COMPONENT: primary = yes, bootstrap = no, my_idx = 0, memb_num = 2
+node2    | 2024-07-18T09:37:08.286243Z 0 [Note] WSREP: STATE_EXCHANGE: sent state UUID: 4d11d8b6-44e9-11ef-8103-bebd541b0f40
+node2    | 2024-07-18T09:37:08.286473Z 0 [Note] WSREP: Waiting for SST/IST to complete.
+node2    | 2024-07-18T09:37:08.287240Z 0 [Note] WSREP: STATE EXCHANGE: sent state msg: 4d11d8b6-44e9-11ef-8103-bebd541b0f40
+node2    | 2024-07-18T09:37:08.287771Z 0 [Note] WSREP: STATE EXCHANGE: got state msg: 4d11d8b6-44e9-11ef-8103-bebd541b0f40 from 0 (host2)
+node2    | 2024-07-18T09:37:08.288104Z 0 [Note] WSREP: STATE EXCHANGE: got state msg: 4d11d8b6-44e9-11ef-8103-bebd541b0f40 from 1 (host1)
+node2    | 2024-07-18T09:37:08.288131Z 0 [Note] WSREP: Quorum results:
+node2    | 	version    = 6,
+node2    | 	component  = PRIMARY,
+node2    | 	conf_id    = 1,
+node2    | 	members    = 1/2 (primary/total),
+node2    | 	act_id     = 18,
+node2    | 	last_appl. = -1,
+node2    | 	protocols  = 0/9/3 (gcs/repl/appl),
+node2    | 	group UUID = 8986ac2c-44e8-11ef-84b1-f3c7530e2b73
+node2    | 2024-07-18T09:37:08.288163Z 0 [Note] WSREP: Flow-control interval: [141, 141]
+node2    | 2024-07-18T09:37:08.288172Z 0 [Note] WSREP: Shifting OPEN -> PRIMARY (TO: 18)
+node2    | 2024-07-18T09:37:08.288422Z 1 [Note] WSREP: State transfer required: 
+node2    | 	Group state: 8986ac2c-44e8-11ef-84b1-f3c7530e2b73:18
+node2    | 	Local state: 00000000-0000-0000-0000-000000000000:-1
+node2    | 2024-07-18T09:37:08.288524Z 1 [Note] WSREP: REPL Protocols: 9 (4, 2)
+node2    | 2024-07-18T09:37:08.288535Z 1 [Note] WSREP: REPL Protocols: 9 (4, 2)
+node2    | 2024-07-18T09:37:08.288577Z 1 [Note] WSREP: New cluster view: global state: 8986ac2c-44e8-11ef-84b1-f3c7530e2b73:18, view# 2: Primary, number of nodes: 2, my index: 0, protocol version 3
+node2    | 2024-07-18T09:37:08.288602Z 1 [Note] WSREP: Setting wsrep_ready to true
+node2    | 2024-07-18T09:37:08.288611Z 1 [Warning] WSREP: Gap in state sequence. Need state transfer.
+node2    | 2024-07-18T09:37:08.288618Z 1 [Note] WSREP: Setting wsrep_ready to false
+node2    | 2024-07-18T09:37:08.289390Z 0 [Note] WSREP: Initiating SST/IST transfer on JOINER side (wsrep_sst_xtrabackup-v2 --role 'joiner' --address '172.22.0.68' --datadir '/var/lib/mysql/' --defaults-file '/etc/my.cnf' --defaults-group-suffix '' --parent '1' --mysqld-version '5.7.44-48-57'   '' )
+node2    | 	2024-07-18T09:37:09.133305Z WSREP_SST: [INFO] Streaming with xbstream
+node2    | 2024-07-18T09:37:09.588113Z 1 [Note] WSREP: Prepared SST/IST request: xtrabackup-v2|172.22.0.68:4444/xtrabackup_sst//1
+node2    | 2024-07-18T09:37:09.588162Z 1 [Note] WSREP: Auto Increment Offset/Increment re-align with cluster membership change (Offset: 1 -> 1) (Increment: 1 -> 2)
+node2    | 2024-07-18T09:37:09.588248Z 1 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+node2    | 2024-07-18T09:37:09.588306Z 1 [Note] WSREP: Assign initial position for certification: 18, protocol version: 4
+node2    | 2024-07-18T09:37:09.588488Z 0 [Note] WSREP: Service thread queue flushed.
+node2    | 2024-07-18T09:37:09.588596Z 1 [Note] WSREP: Check if state gap can be serviced using IST
+node2    | 2024-07-18T09:37:09.588637Z 1 [Note] WSREP: Local UUID: 00000000-0000-0000-0000-000000000000 != Group UUID: 8986ac2c-44e8-11ef-84b1-f3c7530e2b73
+node2    | 2024-07-18T09:37:09.588768Z 1 [Note] WSREP: State gap can't be serviced using IST. Switching to SST
+node2    | 2024-07-18T09:37:09.588783Z 1 [Note] WSREP: Failed to prepare for incremental state transfer: Local state UUID (00000000-0000-0000-0000-000000000000) does not match group state UUID (8986ac2c-44e8-11ef-84b1-f3c7530e2b73): 1 (Operation not permitted)
+node2    | 	 at galera/src/replicator_str.cpp:prepare_for_IST():518. IST will be unavailable.
+node2    | 2024-07-18T09:37:09.589680Z 0 [Note] WSREP: Member 0.0 (host2) requested state transfer from '*any*'. Selected 1.0 (host1)(SYNCED) as donor.
+node2    | 2024-07-18T09:37:09.589706Z 0 [Note] WSREP: Shifting PRIMARY -> JOINER (TO: 18)
+node2    | 2024-07-18T09:37:09.589794Z 1 [Note] WSREP: Requesting state transfer: success, donor: 1
+node2    | 2024-07-18T09:37:09.589826Z 1 [Note] WSREP: GCache history reset: 00000000-0000-0000-0000-000000000000:0 -> 8986ac2c-44e8-11ef-84b1-f3c7530e2b73:18
+node2    | 2024-07-18T09:37:11.286884Z 0 [Note] WSREP: (4cc520a9, 'tcp://0.0.0.0:4567') turning message relay requesting off
+node2    | 	2024-07-18T09:37:11.374184Z WSREP_SST: [INFO] Streaming with xbstream
+node2    | 	2024-07-18T09:37:11.401057Z WSREP_SST: [INFO] Proceeding with SST.........
+node2    | 	2024-07-18T09:37:11.436500Z WSREP_SST: [INFO] ............Waiting for SST streaming to complete!
+node2    | 2024-07-18T09:37:24.785734Z 0 [Note] WSREP: 1.0 (host1): State transfer to 0.0 (host2) complete.
+node2    | 2024-07-18T09:37:24.786371Z 0 [Note] WSREP: Member 1.0 (host1) synced with group.
+node2    | 	2024-07-18T09:37:25.286041Z WSREP_SST: [INFO] Preparing the backup at /var/lib/mysql//.sst
+node2    | 	2024-07-18T09:37:29.411872Z WSREP_SST: [INFO] Moving the backup to /var/lib/mysql/
+node2    | 	2024-07-18T09:37:29.560096Z WSREP_SST: [INFO] Galera co-ords from recovery: 8986ac2c-44e8-11ef-84b1-f3c7530e2b73:18
+node2    | 2024-07-18T09:37:29.587533Z 0 [Note] WSREP: SST complete, seqno: 18
+node2    | 2024-07-18T09:37:29.593009Z 0 [Note] InnoDB: PUNCH HOLE support available
+node2    | 2024-07-18T09:37:29.593067Z 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+node2    | 2024-07-18T09:37:29.593079Z 0 [Note] InnoDB: Uses event mutexes
+node2    | 2024-07-18T09:37:29.593089Z 0 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+node2    | 2024-07-18T09:37:29.593096Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.13
+node2    | 2024-07-18T09:37:29.593117Z 0 [Note] InnoDB: Using Linux native AIO
+node2    | 2024-07-18T09:37:29.594114Z 0 [Note] InnoDB: Number of pools: 1
+node2    | 2024-07-18T09:37:29.594757Z 0 [Note] InnoDB: Using CPU crc32 instructions
+node2    | 2024-07-18T09:37:29.609950Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+node2    | 2024-07-18T09:37:29.620578Z 0 [Note] InnoDB: Completed initialization of buffer pool
+node2    | 2024-07-18T09:37:29.627088Z 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+node2    | 2024-07-18T09:37:29.649783Z 0 [Note] InnoDB: Crash recovery did not find the parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite
+node2    | 2024-07-18T09:37:29.653795Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+node2    | 2024-07-18T09:37:29.688097Z 0 [Note] InnoDB: Created parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite, size 3932160 bytes
+node2    | 2024-07-18T09:37:29.791772Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+node2    | 2024-07-18T09:37:29.791812Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+node2    | 2024-07-18T09:37:29.791903Z 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+node2    | 2024-07-18T09:37:29.848018Z 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+node2    | 2024-07-18T09:37:29.849464Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+node2    | 2024-07-18T09:37:29.849493Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+node2    | 2024-07-18T09:37:29.851129Z 0 [Note] InnoDB: Waiting for purge to start
+node2    | 2024-07-18T09:37:29.902330Z 0 [Note] InnoDB: Percona XtraDB (http://www.percona.com) 5.7.44-48 started; log sequence number 12447784
+node2    | 2024-07-18T09:37:29.906730Z 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+node2    | 2024-07-18T09:37:29.907377Z 0 [Note] Plugin 'FEDERATED' is disabled.
+node2    | 2024-07-18T09:37:29.924685Z 0 [Note] Salting uuid generator variables, current_pid: 1, server_start_time: 1721295427, bytes_sent: 0, 
+node2    | 2024-07-18T09:37:29.924822Z 0 [Note] Generated uuid: '59f7b042-44e9-11ef-b740-525400997dd6', server_start_time: 281476698006084, bytes_sent: 48932480
+node2    | 2024-07-18T09:37:29.924840Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 59f7b042-44e9-11ef-b740-525400997dd6.
+node2    | 2024-07-18T09:37:29.996877Z 0 [Note] InnoDB: Buffer pool(s) load completed at 240718 17:37:29
+node2    | 2024-07-18T09:37:30.087090Z 0 [Note] Auto generated SSL certificates are placed in data directory.
+node2    | 2024-07-18T09:37:30.087128Z 0 [Warning] A deprecated TLS version TLSv1 is enabled. Please use TLSv1.2 or higher.
+node2    | 2024-07-18T09:37:30.087131Z 0 [Warning] A deprecated TLS version TLSv1.1 is enabled. Please use TLSv1.2 or higher.
+node2    | 2024-07-18T09:37:30.087848Z 0 [Warning] CA certificate ca.pem is self signed.
+node2    | 2024-07-18T09:37:30.166175Z 0 [Note] Auto generated RSA key files are placed in data directory.
+node2    | 2024-07-18T09:37:30.166310Z 0 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+node2    | 2024-07-18T09:37:30.166394Z 0 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+node2    | 2024-07-18T09:37:30.166438Z 0 [Note] Server socket created on IP: '0.0.0.0'.
+node2    | 2024-07-18T09:37:30.201437Z 0 [Note] Event Scheduler: Loaded 0 events
+node2    | 2024-07-18T09:37:30.201927Z 0 [Note] WSREP: Signalling provider to continue on SST completion.
+node2    | 2024-07-18T09:37:30.201959Z 0 [Note] WSREP: Initialized wsrep sidno 2
+node2    | 2024-07-18T09:37:30.201999Z 0 [Note] WSREP: SST received: 8986ac2c-44e8-11ef-84b1-f3c7530e2b73:18
+node2    | 2024-07-18T09:37:30.202522Z 0 [Note] mysqld: ready for connections.
+node2    | Version: '5.7.44-48-57'  socket: '/tmp/mysql.sock'  port: 3306  Percona XtraDB Cluster (GPL), Release rel48, Revision 32be3bd, WSREP version 31.65, wsrep_31.65
+node2    | 2024-07-18T09:37:30.207325Z 0 [Note] WSREP: 0.0 (host2): State transfer from 1.0 (host1) complete.
+node2    | 2024-07-18T09:37:30.207388Z 0 [Note] WSREP: SST leaving flow control
+node2    | 2024-07-18T09:37:30.207407Z 0 [Note] WSREP: Shifting JOINER -> JOINED (TO: 18)
+node2    | 2024-07-18T09:37:30.207817Z 0 [Note] WSREP: Member 0.0 (host2) synced with group.
+node2    | 2024-07-18T09:37:30.207833Z 0 [Note] WSREP: Shifting JOINED -> SYNCED (TO: 18)
+node2    | 2024-07-18T09:37:30.207991Z 1 [Note] WSREP: Synchronized with group, ready for connections
+node2    | 2024-07-18T09:37:30.208054Z 1 [Note] WSREP: Setting wsrep_ready to true
+node2    | 2024-07-18T09:37:30.208136Z 1 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+

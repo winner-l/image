@@ -1,0 +1,812 @@
++ '[' m = - ']'
++ CFG=/etc/mysql/node.cnf
++ wantHelp=
++ for arg in "$@"
++ case "$arg" in
++ vault_secret=/etc/mysql/vault-keyring-secret/keyring_vault.conf
++ '[' -f /etc/mysql/vault-keyring-secret/keyring_vault.conf ']'
++ file_env XTRABACKUP_PASSWORD xtrabackup
++ set +o xtrace
++ file_env CLUSTERCHECK_PASSWORD clustercheck
++ set +o xtrace
+++ hostname -f
++ NODE_NAME=host1
++ NODE_PORT=3306
++ '[' -n '' ']'
++ '[' -n '' ']'
++ : checking incoming cluster parameters
+++ hostname -I
+++ awk ' { print $1 } '
++ NODE_IP=172.22.0.67
++ sed -r 's|^[#]?wsrep_node_address=.*$|wsrep_node_address=172.22.0.67|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_node_incoming_address=.*$|wsrep_node_incoming_address=host1:3306|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_sst_auth=.*$|wsrep_sst_auth='\''xtrabackup:123456'\''|' /etc/mysql/node.cnf
++ [[ -n '' ]]
++ [[ -n PXC ]]
++ sed -r 's|^[#]?wsrep_cluster_name=.*$|wsrep_cluster_name=PXC|' /etc/mysql/node.cnf
++ '[' -z '' ']'
++ '[' mysqld = mysqld -a -z '' ']'
++ _check_config mysqld
++ toRun=("$@" --verbose --help --wsrep-provider='none')
+++ mysqld --verbose --help --wsrep-provider=none
++ errors=
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.Ed57o0hBeA
++ DATADIR=/var/lib/mysql/
++ '[' '!' -d /var/lib/mysql//mysql ']'
++ file_env MYSQL_ROOT_PASSWORD
++ set +o xtrace
++ '[' -z xiaohezi@2023 -a -z '' -a -z '' ']'
++ rm -rf
++ mkdir -p /var/lib/mysql/
++ echo 'Initializing database'
++ mysqld --initialize-insecure --skip-ssl
+Initializing database
+mysqld: Can't create/write to file '/var/lib/mysql/is_writable' (Errcode: 13 - Permission denied)
+2024-07-18T08:38:39.530537Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:38:39.530661Z 0 [Warning] WSREP: Node is running in bootstrap/initialize mode. Disabling pxc_strict_mode checks
+2024-07-18T08:38:39.532175Z 0 [ERROR] --initialize specified but the data directory exists and is not writable. Aborting.
+2024-07-18T08:38:39.532185Z 0 [ERROR] Aborting
+
++ '[' m = - ']'
++ CFG=/etc/mysql/node.cnf
++ wantHelp=
++ for arg in "$@"
++ case "$arg" in
++ vault_secret=/etc/mysql/vault-keyring-secret/keyring_vault.conf
++ '[' -f /etc/mysql/vault-keyring-secret/keyring_vault.conf ']'
++ file_env XTRABACKUP_PASSWORD xtrabackup
++ set +o xtrace
++ file_env CLUSTERCHECK_PASSWORD clustercheck
++ set +o xtrace
+++ hostname -f
++ NODE_NAME=host1
++ NODE_PORT=3306
++ '[' -n '' ']'
++ '[' -n '' ']'
++ : checking incoming cluster parameters
+++ hostname -I
+++ awk ' { print $1 } '
++ NODE_IP=172.22.0.67
++ sed -r 's|^[#]?wsrep_node_address=.*$|wsrep_node_address=172.22.0.67|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_node_incoming_address=.*$|wsrep_node_incoming_address=host1:3306|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_sst_auth=.*$|wsrep_sst_auth='\''xtrabackup:123456'\''|' /etc/mysql/node.cnf
++ [[ -n '' ]]
++ [[ -n PXC ]]
++ sed -r 's|^[#]?wsrep_cluster_name=.*$|wsrep_cluster_name=PXC|' /etc/mysql/node.cnf
++ '[' -z '' ']'
++ '[' mysqld = mysqld -a -z '' ']'
++ _check_config mysqld
++ toRun=("$@" --verbose --help --wsrep-provider='none')
+++ mysqld --verbose --help --wsrep-provider=none
++ errors=
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.4h5v0tBIYQ
++ DATADIR=/var/lib/mysql/
++ '[' '!' -d /var/lib/mysql//mysql ']'
++ file_env MYSQL_ROOT_PASSWORD
++ set +o xtrace
++ '[' -z xiaohezi@2023 -a -z '' -a -z '' ']'
++ rm -rf
++ mkdir -p /var/lib/mysql/
++ echo 'Initializing database'
+Initializing database
++ mysqld --initialize-insecure --skip-ssl
+mysqld: Can't create/write to file '/var/lib/mysql/is_writable' (Errcode: 13 - Permission denied)
+2024-07-18T08:39:00.233746Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:39:00.233850Z 0 [Warning] WSREP: Node is running in bootstrap/initialize mode. Disabling pxc_strict_mode checks
+2024-07-18T08:39:00.235250Z 0 [ERROR] --initialize specified but the data directory exists and is not writable. Aborting.
+2024-07-18T08:39:00.235264Z 0 [ERROR] Aborting
+
++ '[' m = - ']'
++ CFG=/etc/mysql/node.cnf
++ wantHelp=
++ for arg in "$@"
++ case "$arg" in
++ vault_secret=/etc/mysql/vault-keyring-secret/keyring_vault.conf
++ '[' -f /etc/mysql/vault-keyring-secret/keyring_vault.conf ']'
++ file_env XTRABACKUP_PASSWORD xtrabackup
++ set +o xtrace
++ file_env CLUSTERCHECK_PASSWORD clustercheck
++ set +o xtrace
+++ hostname -f
++ NODE_NAME=host1
++ NODE_PORT=3306
++ '[' -n '' ']'
++ '[' -n '' ']'
++ : checking incoming cluster parameters
+++ hostname -I
+++ awk ' { print $1 } '
++ NODE_IP=172.22.0.67
++ sed -r 's|^[#]?wsrep_node_address=.*$|wsrep_node_address=172.22.0.67|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_node_incoming_address=.*$|wsrep_node_incoming_address=host1:3306|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_sst_auth=.*$|wsrep_sst_auth='\''xtrabackup:123456'\''|' /etc/mysql/node.cnf
++ [[ -n '' ]]
++ [[ -n PXC ]]
++ sed -r 's|^[#]?wsrep_cluster_name=.*$|wsrep_cluster_name=PXC|' /etc/mysql/node.cnf
++ '[' -z '' ']'
++ '[' mysqld = mysqld -a -z '' ']'
++ _check_config mysqld
++ toRun=("$@" --verbose --help --wsrep-provider='none')
+++ mysqld --verbose --help --wsrep-provider=none
++ errors=
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.c0ENRk2kTQ
++ DATADIR=/var/lib/mysql/
++ '[' '!' -d /var/lib/mysql//mysql ']'
++ file_env MYSQL_ROOT_PASSWORD
++ set +o xtrace
++ '[' -z xiaohezi@2023 -a -z '' -a -z '' ']'
++ rm -rf
++ mkdir -p /var/lib/mysql/
+Initializing database
++ echo 'Initializing database'
++ mysqld --initialize-insecure --skip-ssl
+mysqld: Can't create/write to file '/var/lib/mysql/is_writable' (Errcode: 13 - Permission denied)
+2024-07-18T08:39:20.908239Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:39:20.908389Z 0 [Warning] WSREP: Node is running in bootstrap/initialize mode. Disabling pxc_strict_mode checks
+2024-07-18T08:39:20.909775Z 0 [ERROR] --initialize specified but the data directory exists and is not writable. Aborting.
+2024-07-18T08:39:20.909786Z 0 [ERROR] Aborting
+
++ '[' m = - ']'
++ CFG=/etc/mysql/node.cnf
++ wantHelp=
++ for arg in "$@"
++ case "$arg" in
++ vault_secret=/etc/mysql/vault-keyring-secret/keyring_vault.conf
++ '[' -f /etc/mysql/vault-keyring-secret/keyring_vault.conf ']'
++ file_env XTRABACKUP_PASSWORD xtrabackup
++ set +o xtrace
++ file_env CLUSTERCHECK_PASSWORD clustercheck
++ set +o xtrace
+++ hostname -f
++ NODE_NAME=host1
++ NODE_PORT=3306
++ '[' -n '' ']'
++ '[' -n '' ']'
++ : checking incoming cluster parameters
+++ hostname -I
+++ awk ' { print $1 } '
++ NODE_IP=172.22.0.67
++ sed -r 's|^[#]?wsrep_node_address=.*$|wsrep_node_address=172.22.0.67|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_node_incoming_address=.*$|wsrep_node_incoming_address=host1:3306|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_sst_auth=.*$|wsrep_sst_auth='\''xtrabackup:123456'\''|' /etc/mysql/node.cnf
++ [[ -n '' ]]
++ [[ -n PXC ]]
++ sed -r 's|^[#]?wsrep_cluster_name=.*$|wsrep_cluster_name=PXC|' /etc/mysql/node.cnf
++ '[' -z '' ']'
++ '[' mysqld = mysqld -a -z '' ']'
++ _check_config mysqld
++ toRun=("$@" --verbose --help --wsrep-provider='none')
+++ mysqld --verbose --help --wsrep-provider=none
++ errors=
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.JHkz9YvZ3M
++ DATADIR=/var/lib/mysql/
++ '[' '!' -d /var/lib/mysql//mysql ']'
++ file_env MYSQL_ROOT_PASSWORD
++ set +o xtrace
++ '[' -z xiaohezi@2023 -a -z '' -a -z '' ']'
++ rm -rf
++ mkdir -p /var/lib/mysql/
+Initializing database
++ echo 'Initializing database'
++ mysqld --initialize-insecure --skip-ssl
+mysqld: Can't create/write to file '/var/lib/mysql/is_writable' (Errcode: 13 - Permission denied)
+2024-07-18T08:39:41.539569Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:39:41.539666Z 0 [Warning] WSREP: Node is running in bootstrap/initialize mode. Disabling pxc_strict_mode checks
+2024-07-18T08:39:41.540834Z 0 [ERROR] --initialize specified but the data directory exists and is not writable. Aborting.
+2024-07-18T08:39:41.540843Z 0 [ERROR] Aborting
+
++ '[' m = - ']'
++ CFG=/etc/mysql/node.cnf
++ wantHelp=
++ for arg in "$@"
++ case "$arg" in
++ vault_secret=/etc/mysql/vault-keyring-secret/keyring_vault.conf
++ '[' -f /etc/mysql/vault-keyring-secret/keyring_vault.conf ']'
++ file_env XTRABACKUP_PASSWORD xtrabackup
++ set +o xtrace
++ file_env CLUSTERCHECK_PASSWORD clustercheck
++ set +o xtrace
+++ hostname -f
++ NODE_NAME=host1
++ NODE_PORT=3306
++ '[' -n '' ']'
++ '[' -n '' ']'
++ : checking incoming cluster parameters
+++ hostname -I
+++ awk ' { print $1 } '
++ NODE_IP=172.22.0.67
++ sed -r 's|^[#]?wsrep_node_address=.*$|wsrep_node_address=172.22.0.67|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_node_incoming_address=.*$|wsrep_node_incoming_address=host1:3306|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_sst_auth=.*$|wsrep_sst_auth='\''xtrabackup:123456'\''|' /etc/mysql/node.cnf
++ [[ -n '' ]]
++ [[ -n PXC ]]
++ sed -r 's|^[#]?wsrep_cluster_name=.*$|wsrep_cluster_name=PXC|' /etc/mysql/node.cnf
++ '[' -z '' ']'
++ '[' mysqld = mysqld -a -z '' ']'
++ _check_config mysqld
++ toRun=("$@" --verbose --help --wsrep-provider='none')
+++ mysqld --verbose --help --wsrep-provider=none
++ errors=
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.h6lYtMiOIr
++ DATADIR=/var/lib/mysql/
++ '[' '!' -d /var/lib/mysql//mysql ']'
++ file_env MYSQL_ROOT_PASSWORD
++ set +o xtrace
++ '[' -z xiaohezi@2023 -a -z '' -a -z '' ']'
++ rm -rf
++ mkdir -p /var/lib/mysql/
++ echo 'Initializing database'
++ mysqld --initialize-insecure --skip-ssl
+Initializing database
+mysqld: Can't create/write to file '/var/lib/mysql/is_writable' (Errcode: 13 - Permission denied)
+2024-07-18T08:40:02.169628Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:40:02.169760Z 0 [Warning] WSREP: Node is running in bootstrap/initialize mode. Disabling pxc_strict_mode checks
+2024-07-18T08:40:02.171279Z 0 [ERROR] --initialize specified but the data directory exists and is not writable. Aborting.
+2024-07-18T08:40:02.171290Z 0 [ERROR] Aborting
+
++ '[' m = - ']'
++ CFG=/etc/mysql/node.cnf
++ wantHelp=
++ for arg in "$@"
++ case "$arg" in
++ vault_secret=/etc/mysql/vault-keyring-secret/keyring_vault.conf
++ '[' -f /etc/mysql/vault-keyring-secret/keyring_vault.conf ']'
++ file_env XTRABACKUP_PASSWORD xtrabackup
++ set +o xtrace
++ file_env CLUSTERCHECK_PASSWORD clustercheck
++ set +o xtrace
+++ hostname -f
++ NODE_NAME=host1
++ NODE_PORT=3306
++ '[' -n '' ']'
++ '[' -n '' ']'
++ : checking incoming cluster parameters
+++ hostname -I
+++ awk ' { print $1 } '
++ NODE_IP=172.22.0.67
++ sed -r 's|^[#]?wsrep_node_address=.*$|wsrep_node_address=172.22.0.67|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_node_incoming_address=.*$|wsrep_node_incoming_address=host1:3306|' /etc/mysql/node.cnf
++ sed -r 's|^[#]?wsrep_sst_auth=.*$|wsrep_sst_auth='\''xtrabackup:123456'\''|' /etc/mysql/node.cnf
++ [[ -n '' ]]
++ [[ -n PXC ]]
++ sed -r 's|^[#]?wsrep_cluster_name=.*$|wsrep_cluster_name=PXC|' /etc/mysql/node.cnf
++ '[' -z '' ']'
++ '[' mysqld = mysqld -a -z '' ']'
++ _check_config mysqld
++ toRun=("$@" --verbose --help --wsrep-provider='none')
+++ mysqld --verbose --help --wsrep-provider=none
++ errors=
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.hlSYNNyfQo
++ DATADIR=/var/lib/mysql/
++ '[' '!' -d /var/lib/mysql//mysql ']'
++ file_env MYSQL_ROOT_PASSWORD
++ set +o xtrace
++ '[' -z xiaohezi@2023 -a -z '' -a -z '' ']'
++ rm -rf
++ mkdir -p /var/lib/mysql/
+Initializing database
++ echo 'Initializing database'
++ mysqld --initialize-insecure --skip-ssl
+2024-07-18T08:40:22.795610Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:40:22.795740Z 0 [Warning] WSREP: Node is running in bootstrap/initialize mode. Disabling pxc_strict_mode checks
+2024-07-18T08:40:24.198039Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2024-07-18T08:40:24.330663Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2024-07-18T08:40:24.394664Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 603143a5-44e1-11ef-82e4-5254000a2d2f.
+2024-07-18T08:40:24.399509Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+2024-07-18T08:40:24.491775Z 1 [Warning] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+Database initialized
++ echo 'Database initialized'
+++ _get_config socket mysqld
+++ local conf=socket
+++ shift
+++ awk '$1 == "socket" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.DR09YKWZ41
++ SOCKET=/tmp/mysql.sock
++ pid=60
++ mysql=(mysql --protocol=socket -uroot -hlocalhost --socket="${SOCKET}" --password="")
++ wsrep_local_state_select='SELECT variable_value FROM performance_schema.global_status WHERE variable_name='\''wsrep_local_state_comment'\'''
++ mysqld --skip-networking --socket=/tmp/mysql.sock
++ for i in {120..0}
+++ echo 'SELECT variable_value FROM performance_schema.global_status WHERE variable_name='\''wsrep_local_state_comment'\'''
+++ mysql --protocol=socket -uroot -hlocalhost --socket=/tmp/mysql.sock --password= -s
++ wsrep_local_state=
++ true
++ '[' '' = Synced ']'
++ echo 'MySQL init process in progress...'
++ sleep 1
+MySQL init process in progress...
+2024-07-18T08:40:35.388934Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:40:35.417332Z 0 [Note] mysqld (mysqld 5.7.44-48-57) starting as process 60 ...
+2024-07-18T08:40:35.427025Z 0 [Note] WSREP: Setting wsrep_ready to false
+2024-07-18T08:40:35.427060Z 0 [Note] WSREP: No pre-stored wsrep-start position found. Skipping position initialization.
+2024-07-18T08:40:35.427072Z 0 [Note] WSREP: wsrep_load(): loading provider library '/usr/lib64/galera3/libgalera_smm.so'
+2024-07-18T08:40:35.430479Z 0 [Note] WSREP: wsrep_load(): Galera 3.65(rf47405c) by Codership Oy <info@codership.com> loaded successfully.
+2024-07-18T08:40:35.430721Z 0 [Note] WSREP: CRC-32C: using 64-bit x86 acceleration.
+2024-07-18T08:40:35.432141Z 0 [Warning] WSREP: Could not open state file for reading: '/var/lib/mysql//grastate.dat'
+2024-07-18T08:40:35.432161Z 0 [Warning] WSREP: No persistent state found. Bootstraping with default state
+2024-07-18T08:40:35.432237Z 0 [Note] WSREP: Found saved state: 00000000-0000-0000-0000-000000000000:-1, safe_to_bootstrap: 1
+2024-07-18T08:40:35.487264Z 0 [Note] WSREP: Passing config to GCS: base_dir = /var/lib/mysql/; base_host = 172.22.0.67; base_port = 4567; cert.log_conflicts = no; cert.optimistic_pa = yes; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 10; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 4; evs.view_forget_timeout = PT24H; gcache.dir = /var/lib/mysql/; gcache.freeze_purge_at_seqno = -1; gcache.keep_pages_count = 0; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /var/lib/mysql//galera.cache; gcache.page_size = 128M; gcache.recover = no; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1; gcs.fc_limit = 100; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0; pc.announce_timeout = PT3S; pc.checksum = false; pc.ignore_quorum = false; pc.ignore_sb = false; pc.npvo = false; pc.recovery = true; pc.version = 0; pc.wait_prim = true; pc.wait_prim_timeout = PT30S; pc.weight = 1; protonet.backend = asio; protonet.version = 0; repl.causal_read_timeout = PT30S; repl.commit_order = 3; repl.key_format = FLAT8; repl.max_ws_size = 2147483647; repl.proto_max = 9; socket.checksum = 2; socket.recv_buf_size = auto; socket.send_buf_size = auto; 
+2024-07-18T08:40:35.550041Z 0 [Note] WSREP: GCache history reset: 00000000-0000-0000-0000-000000000000:0 -> 00000000-0000-0000-0000-000000000000:-1
+2024-07-18T08:40:35.553800Z 0 [Note] WSREP: Assign initial position for certification: -1, protocol version: -1
+2024-07-18T08:40:35.553870Z 0 [Note] WSREP: Preparing to initiate SST/IST
+2024-07-18T08:40:35.553881Z 0 [Note] WSREP: Starting replication
+2024-07-18T08:40:35.553935Z 0 [Note] WSREP: Setting initial position to 00000000-0000-0000-0000-000000000000:-1
+2024-07-18T08:40:35.555487Z 0 [Note] WSREP: Using CRC-32C for message checksums.
+2024-07-18T08:40:35.556289Z 0 [Note] WSREP: gcomm thread scheduling priority set to other:0 
+2024-07-18T08:40:35.556938Z 0 [Note] WSREP: Fail to access the file (/var/lib/mysql//gvwstate.dat) error (No such file or directory). It is possible if node is booting for first time or re-booting after a graceful shutdown
+2024-07-18T08:40:35.556968Z 0 [Note] WSREP: Restoring primary-component from disk failed. Either node is booting for first time or re-booting after a graceful shutdown
+2024-07-18T08:40:35.557584Z 0 [Note] WSREP: GMCast version 0
+2024-07-18T08:40:35.558124Z 0 [Note] WSREP: (66d884a0, 'tcp://0.0.0.0:4567') listening at tcp://0.0.0.0:4567
+2024-07-18T08:40:35.558152Z 0 [Note] WSREP: (66d884a0, 'tcp://0.0.0.0:4567') multicast: , ttl: 1
+2024-07-18T08:40:35.559187Z 0 [Note] WSREP: EVS version 0
+2024-07-18T08:40:35.559555Z 0 [Note] WSREP: gcomm: connecting to group 'PXC', peer ''
+2024-07-18T08:40:35.559668Z 0 [Note] WSREP: start_prim is enabled, turn off pc_recovery
+2024-07-18T08:40:35.561492Z 0 [Note] WSREP: Node 66d884a0 state primary
+2024-07-18T08:40:35.561581Z 0 [Note] WSREP: Current view of cluster as seen by this node
+view (view_id(PRIM,66d884a0,1)
+memb {
+	66d884a0,0
+	}
+joined {
+	}
+left {
+	}
+partitioned {
+	}
+)
+2024-07-18T08:40:35.561602Z 0 [Note] WSREP: Save the discovered primary-component to disk
+2024-07-18T08:40:35.565291Z 0 [Note] WSREP: gcomm: connected
+2024-07-18T08:40:35.565686Z 0 [Note] WSREP: Shifting CLOSED -> OPEN (TO: 0)
+2024-07-18T08:40:35.566019Z 0 [Note] WSREP: New COMPONENT: primary = yes, bootstrap = no, my_idx = 0, memb_num = 1
+2024-07-18T08:40:35.566181Z 0 [Note] WSREP: Starting new group from scratch: 66d9e62e-44e1-11ef-8690-3aefb3021275
+2024-07-18T08:40:35.566246Z 0 [Note] WSREP: STATE_EXCHANGE: sent state UUID: 66d9e834-44e1-11ef-8721-7be96beb6a4b
+2024-07-18T08:40:35.566298Z 0 [Note] WSREP: STATE EXCHANGE: sent state msg: 66d9e834-44e1-11ef-8721-7be96beb6a4b
+2024-07-18T08:40:35.566304Z 0 [Note] WSREP: STATE EXCHANGE: got state msg: 66d9e834-44e1-11ef-8721-7be96beb6a4b from 0 (host1)
+2024-07-18T08:40:35.566325Z 0 [Note] WSREP: Quorum results:
+	version    = 6,
+	component  = PRIMARY,
+	conf_id    = 0,
+	members    = 1/1 (primary/total),
+	act_id     = 0,
+	last_appl. = -1,
+	protocols  = 0/9/3 (gcs/repl/appl),
+	group UUID = 66d9e62e-44e1-11ef-8690-3aefb3021275
+2024-07-18T08:40:35.566339Z 0 [Note] WSREP: Flow-control interval: [100, 100]
+2024-07-18T08:40:35.566339Z 0 [Note] WSREP: Waiting for SST/IST to complete.
+2024-07-18T08:40:35.566343Z 0 [Note] WSREP: Restored state OPEN -> JOINED (0)
+2024-07-18T08:40:35.566429Z 0 [Note] WSREP: Member 0.0 (host1) synced with group.
+2024-07-18T08:40:35.566439Z 0 [Note] WSREP: Shifting JOINED -> SYNCED (TO: 0)
+2024-07-18T08:40:35.567107Z 1 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2024-07-18T08:40:35.567150Z 1 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2024-07-18T08:40:35.567172Z 1 [Note] WSREP: New cluster view: global state: 66d9e62e-44e1-11ef-8690-3aefb3021275:0, view# 1: Primary, number of nodes: 1, my index: 0, protocol version 3
+2024-07-18T08:40:35.567178Z 1 [Note] WSREP: Setting wsrep_ready to true
+2024-07-18T08:40:35.567265Z 0 [Note] WSREP: SST complete, seqno: 0
+2024-07-18T08:40:35.577168Z 0 [Note] InnoDB: PUNCH HOLE support available
+2024-07-18T08:40:35.577229Z 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2024-07-18T08:40:35.577242Z 0 [Note] InnoDB: Uses event mutexes
+2024-07-18T08:40:35.577251Z 0 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+2024-07-18T08:40:35.577258Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.13
+2024-07-18T08:40:35.577289Z 0 [Note] InnoDB: Using Linux native AIO
+2024-07-18T08:40:35.578570Z 0 [Note] InnoDB: Number of pools: 1
+2024-07-18T08:40:35.579395Z 0 [Note] InnoDB: Using CPU crc32 instructions
+2024-07-18T08:40:35.591965Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2024-07-18T08:40:35.628581Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2024-07-18T08:40:35.639026Z 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2024-07-18T08:40:35.662603Z 0 [Note] InnoDB: Crash recovery did not find the parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite
+2024-07-18T08:40:35.666921Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2024-07-18T08:40:35.727638Z 0 [Note] InnoDB: Created parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite, size 3932160 bytes
+2024-07-18T08:40:35.843148Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2024-07-18T08:40:35.843300Z 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
++ for i in {120..0}
+++ echo 'SELECT variable_value FROM performance_schema.global_status WHERE variable_name='\''wsrep_local_state_comment'\'''
+++ mysql --protocol=socket -uroot -hlocalhost --socket=/tmp/mysql.sock --password= -s
++ wsrep_local_state=
++ true
++ '[' '' = Synced ']'
++ echo 'MySQL init process in progress...'
++ sleep 1
+MySQL init process in progress...
+2024-07-18T08:40:35.917350Z 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2024-07-18T08:40:35.920345Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2024-07-18T08:40:35.920383Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2024-07-18T08:40:35.922767Z 0 [Note] InnoDB: Percona XtraDB (http://www.percona.com) 5.7.44-48 started; log sequence number 2774448
+2024-07-18T08:40:35.923485Z 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2024-07-18T08:40:35.925881Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2024-07-18T08:40:36.008334Z 0 [Note] InnoDB: Buffer pool(s) load completed at 240718 16:40:36
+2024-07-18T08:40:36.308224Z 0 [Note] Auto generated SSL certificates are placed in data directory.
+2024-07-18T08:40:36.308259Z 0 [Warning] A deprecated TLS version TLSv1 is enabled. Please use TLSv1.2 or higher.
+2024-07-18T08:40:36.308264Z 0 [Warning] A deprecated TLS version TLSv1.1 is enabled. Please use TLSv1.2 or higher.
+2024-07-18T08:40:36.309190Z 0 [Warning] CA certificate ca.pem is self signed.
+2024-07-18T08:40:36.309361Z 0 [Note] Skipping generation of RSA key pair as key files are present in data directory.
+2024-07-18T08:40:36.315754Z 0 [Warning] Insecure configuration for --pid-file: Location '/var/lib/mysql' in the path is accessible to all OS users. Consider choosing a different directory.
+2024-07-18T08:40:36.350170Z 0 [Note] Event Scheduler: Loaded 0 events
+2024-07-18T08:40:36.350758Z 0 [Note] mysqld: ready for connections.
+Version: '5.7.44-48-57'  socket: '/tmp/mysql.sock'  port: 0  Percona XtraDB Cluster (GPL), Release rel48, Revision 32be3bd, WSREP version 31.65, wsrep_31.65
+2024-07-18T08:40:36.355917Z 1 [Note] WSREP: Initialized wsrep sidno 2
+2024-07-18T08:40:36.355958Z 1 [Note] WSREP: Auto Increment Offset/Increment re-align with cluster membership change (Offset: 1 -> 1) (Increment: 1 -> 1)
+2024-07-18T08:40:36.356073Z 1 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2024-07-18T08:40:36.356142Z 1 [Note] WSREP: Assign initial position for certification: 0, protocol version: 4
+2024-07-18T08:40:36.356320Z 0 [Note] WSREP: Service thread queue flushed.
+2024-07-18T08:40:36.360671Z 1 [Note] WSREP: GCache history reset: 00000000-0000-0000-0000-000000000000:0 -> 66d9e62e-44e1-11ef-8690-3aefb3021275:0
+2024-07-18T08:40:36.365830Z 1 [Note] WSREP: Synchronized with group, ready for connections
+2024-07-18T08:40:36.365855Z 1 [Note] WSREP: Setting wsrep_ready to true
+2024-07-18T08:40:36.365864Z 1 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
++ for i in {120..0}
+++ echo 'SELECT variable_value FROM performance_schema.global_status WHERE variable_name='\''wsrep_local_state_comment'\'''
+++ mysql --protocol=socket -uroot -hlocalhost --socket=/tmp/mysql.sock --password= -s
++ wsrep_local_state=Synced
++ '[' Synced = Synced ']'
++ break
++ '[' 118 = 0 ']'
++ '[' -z '' ']'
++ mysql_tzinfo_to_sql /usr/share/zoneinfo
++ sed 's/Local time zone must be set--see zic manual page/FCTY/'
++ mysql --protocol=socket -uroot -hlocalhost --socket=/tmp/mysql.sock --password= mysql
+mysql: [Warning] Using a password on the command line interface can be insecure.
+2024-07-18T08:40:36.965523Z 6 [Note] InnoDB: Stopping purge
+2024-07-18T08:40:36.974737Z 6 [Note] InnoDB: Resuming purge
+2024-07-18T08:40:36.990152Z 6 [Note] InnoDB: Stopping purge
+2024-07-18T08:40:36.995528Z 6 [Note] InnoDB: Resuming purge
+2024-07-18T08:40:37.009266Z 6 [Note] InnoDB: Stopping purge
+2024-07-18T08:40:37.014140Z 6 [Note] InnoDB: Resuming purge
+2024-07-18T08:40:37.028904Z 6 [Note] InnoDB: Stopping purge
+2024-07-18T08:40:37.033844Z 6 [Note] InnoDB: Resuming purge
+Warning: Unable to load '/usr/share/zoneinfo/iso3166.tab' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/leapseconds' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/tzdata.zi' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/zone.tab' as time zone. Skipping it.
+Warning: Unable to load '/usr/share/zoneinfo/zone1970.tab' as time zone. Skipping it.
++ '[' '!' -z '' ']'
++ rootCreate=
++ file_env MYSQL_ROOT_HOST %
++ set +o xtrace
++ '[' '!' -z % -a % '!=' localhost ']'
++ read -r -d '' rootCreate
++ true
++ file_env MONITOR_HOST localhost
++ set +o xtrace
++ file_env MONITOR_PASSWORD monitor
++ set +o xtrace
++ mysql --protocol=socket -uroot -hlocalhost --socket=/tmp/mysql.sock --password=
+mysql: [Warning] Using a password on the command line interface can be insecure.
++ '[' '!' -z xiaohezi@2023 ']'
++ mysql+=(-p"${MYSQL_ROOT_PASSWORD}")
++ file_env MYSQL_DATABASE
++ set +o xtrace
++ '[' '' ']'
++ file_env MYSQL_USER
++ set +o xtrace
++ file_env MYSQL_PASSWORD
++ set +o xtrace
++ '[' '' -a '' ']'
++ echo
++ ls /docker-entrypoint-initdb.d/
+
++ '[' '!' -z '' ']'
++ kill -s TERM 60
++ wait 60
+2024-07-18T08:40:40.310776Z 0 [Note] WSREP: Received shutdown signal. Will sleep for 10 secs before initiating shutdown. pxc_maint_mode switched to SHUTDOWN
+2024-07-18T08:40:50.312420Z 0 [Note] WSREP: Stop replication
+2024-07-18T08:40:50.312571Z 0 [Note] WSREP: Closing send monitor...
+2024-07-18T08:40:50.312620Z 0 [Note] WSREP: Closed send monitor.
+2024-07-18T08:40:50.313570Z 0 [Note] WSREP: gcomm: terminating thread
+2024-07-18T08:40:50.313628Z 0 [Note] WSREP: gcomm: joining thread
+2024-07-18T08:40:50.313894Z 0 [Note] WSREP: gcomm: closing backend
+2024-07-18T08:40:50.318001Z 0 [Note] WSREP: Current view of cluster as seen by this node
+view ((empty))
+2024-07-18T08:40:50.319462Z 0 [Note] WSREP: gcomm: closed
+2024-07-18T08:40:50.319577Z 0 [Note] WSREP: Received self-leave message.
+2024-07-18T08:40:50.319632Z 0 [Note] WSREP: Flow-control interval: [0, 0]
+2024-07-18T08:40:50.319640Z 0 [Note] WSREP: Received SELF-LEAVE. Closing connection.
+2024-07-18T08:40:50.319818Z 0 [Note] WSREP: Shifting SYNCED -> CLOSED (TO: 18)
+2024-07-18T08:40:50.319891Z 0 [Note] WSREP: RECV thread exiting 0: Success
+2024-07-18T08:40:50.319988Z 4 [Note] WSREP: New cluster view: global state: 66d9e62e-44e1-11ef-8690-3aefb3021275:18, view# -1: non-Primary, number of nodes: 0, my index: -1, protocol version 3
+2024-07-18T08:40:50.320033Z 4 [Note] WSREP: Setting wsrep_ready to false
+2024-07-18T08:40:50.320199Z 4 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2024-07-18T08:40:50.320508Z 0 [Note] WSREP: recv_thread() joined.
+2024-07-18T08:40:50.320541Z 0 [Note] WSREP: Closing replication queue.
+2024-07-18T08:40:50.320552Z 0 [Note] WSREP: Closing slave action queue.
+2024-07-18T08:40:50.320578Z 0 [Note] WSREP: Waiting for active wsrep applier to exit
+2024-07-18T08:40:50.324610Z 4 [Note] WSREP: applier thread exiting (code:0)
+2024-07-18T08:40:50.330228Z 1 [Note] WSREP: applier thread exiting (code:6)
+2024-07-18T08:40:50.330546Z 2 [Note] WSREP: rollbacker thread exiting
+2024-07-18T08:40:50.331216Z 0 [Note] Giving 0 client threads a chance to die gracefully
+2024-07-18T08:40:50.331247Z 0 [Note] Shutting down slave threads
+2024-07-18T08:40:50.331323Z 0 [Note] Forcefully disconnecting 0 remaining clients
+2024-07-18T08:40:50.331362Z 0 [Note] Event Scheduler: Purging the queue. 0 events
+2024-07-18T08:40:50.392898Z 0 [Note] WSREP: Service thread queue flushed.
+2024-07-18T08:40:50.396624Z 0 [Note] WSREP: MemPool(SlaveTrxHandle): hit ratio: 0, misses: 0, in use: 0, in pool: 0
+2024-07-18T08:40:50.422789Z 0 [Note] Binlog end
+2024-07-18T08:40:50.427317Z 0 [Note] Shutting down plugin 'ngram'
+2024-07-18T08:40:50.427371Z 0 [Note] Shutting down plugin 'partition'
+2024-07-18T08:40:50.427382Z 0 [Note] Shutting down plugin 'BLACKHOLE'
+2024-07-18T08:40:50.427393Z 0 [Note] Shutting down plugin 'ARCHIVE'
+2024-07-18T08:40:50.427399Z 0 [Note] Shutting down plugin 'MRG_MYISAM'
+2024-07-18T08:40:50.427406Z 0 [Note] Shutting down plugin 'MyISAM'
+2024-07-18T08:40:50.427428Z 0 [Note] Shutting down plugin 'INNODB_TABLESPACES_SCRUBBING'
+2024-07-18T08:40:50.427447Z 0 [Note] Shutting down plugin 'INNODB_TABLESPACES_ENCRYPTION'
+2024-07-18T08:40:50.427454Z 0 [Note] Shutting down plugin 'INNODB_SYS_VIRTUAL'
+2024-07-18T08:40:50.427461Z 0 [Note] Shutting down plugin 'INNODB_CHANGED_PAGES'
+2024-07-18T08:40:50.427468Z 0 [Note] Shutting down plugin 'INNODB_SYS_DATAFILES'
+2024-07-18T08:40:50.427474Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESPACES'
+2024-07-18T08:40:50.427479Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN_COLS'
+2024-07-18T08:40:50.427484Z 0 [Note] Shutting down plugin 'INNODB_SYS_FOREIGN'
+2024-07-18T08:40:50.427488Z 0 [Note] Shutting down plugin 'INNODB_SYS_FIELDS'
+2024-07-18T08:40:50.427493Z 0 [Note] Shutting down plugin 'INNODB_SYS_COLUMNS'
+2024-07-18T08:40:50.427498Z 0 [Note] Shutting down plugin 'INNODB_SYS_INDEXES'
+2024-07-18T08:40:50.427505Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLESTATS'
+2024-07-18T08:40:50.427512Z 0 [Note] Shutting down plugin 'INNODB_SYS_TABLES'
+2024-07-18T08:40:50.427518Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_TABLE'
+2024-07-18T08:40:50.427523Z 0 [Note] Shutting down plugin 'INNODB_FT_INDEX_CACHE'
+2024-07-18T08:40:50.427528Z 0 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+2024-07-18T08:40:50.427532Z 0 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+2024-07-18T08:40:50.427537Z 0 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+2024-07-18T08:40:50.427542Z 0 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+2024-07-18T08:40:50.427549Z 0 [Note] Shutting down plugin 'INNODB_METRICS'
+2024-07-18T08:40:50.427556Z 0 [Note] Shutting down plugin 'INNODB_TEMP_TABLE_INFO'
+2024-07-18T08:40:50.427562Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+2024-07-18T08:40:50.427567Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+2024-07-18T08:40:50.427572Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+2024-07-18T08:40:50.427577Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+2024-07-18T08:40:50.427583Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+2024-07-18T08:40:50.427588Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+2024-07-18T08:40:50.427595Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM'
+2024-07-18T08:40:50.427602Z 0 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+2024-07-18T08:40:50.427607Z 0 [Note] Shutting down plugin 'INNODB_CMP'
+2024-07-18T08:40:50.427619Z 0 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+2024-07-18T08:40:50.427625Z 0 [Note] Shutting down plugin 'INNODB_LOCKS'
+2024-07-18T08:40:50.427629Z 0 [Note] Shutting down plugin 'INNODB_TRX'
+2024-07-18T08:40:50.427634Z 0 [Note] Shutting down plugin 'XTRADB_ZIP_DICT_COLS'
+2024-07-18T08:40:50.427640Z 0 [Note] Shutting down plugin 'XTRADB_ZIP_DICT'
+2024-07-18T08:40:50.427647Z 0 [Note] Shutting down plugin 'XTRADB_RSEG'
+2024-07-18T08:40:50.427654Z 0 [Note] Shutting down plugin 'XTRADB_INTERNAL_HASH_TABLES'
+2024-07-18T08:40:50.427660Z 0 [Note] Shutting down plugin 'XTRADB_READ_VIEW'
+2024-07-18T08:40:50.427665Z 0 [Note] Shutting down plugin 'InnoDB'
+2024-07-18T08:40:50.428229Z 0 [Note] InnoDB: FTS optimize thread exiting.
+2024-07-18T08:40:50.428440Z 0 [Note] InnoDB: Starting shutdown...
+2024-07-18T08:40:50.528988Z 0 [Note] InnoDB: Dumping buffer pool(s) to /var/lib/mysql/ib_buffer_pool
+2024-07-18T08:40:50.529726Z 0 [Note] InnoDB: Buffer pool(s) dump completed at 240718 16:40:50
+2024-07-18T08:40:51.230041Z 0 [Note] InnoDB: Waiting for page_cleaner to finish flushing of buffer pool
+2024-07-18T08:40:52.377624Z 0 [Note] InnoDB: Shutdown completed; log sequence number 12447413
+2024-07-18T08:40:52.377981Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2024-07-18T08:40:52.378007Z 0 [Note] Shutting down plugin 'MEMORY'
+2024-07-18T08:40:52.378026Z 0 [Note] Shutting down plugin 'CSV'
+2024-07-18T08:40:52.378034Z 0 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+2024-07-18T08:40:52.378092Z 0 [Note] Shutting down plugin 'sha256_password'
+2024-07-18T08:40:52.378096Z 0 [Note] Shutting down plugin 'mysql_native_password'
+2024-07-18T08:40:52.378101Z 0 [Note] Shutting down plugin 'wsrep'
+2024-07-18T08:40:52.378555Z 0 [Note] Shutting down plugin 'binlog'
+2024-07-18T08:40:52.384836Z 0 [Note] mysqld: Shutdown complete
+
++ echo
++ echo 'MySQL init process done. Ready for start up.'
++ echo
++ '[' '!' -z '' ']'
++ '[' mysqld = mysqld -a -z '' ']'
+
+MySQL init process done. Ready for start up.
+
++ mysqld --version
++ tee /tmp/version_info
+mysqld  Ver 5.7.44-48-57 for Linux on x86_64 (Percona XtraDB Cluster (GPL), Release rel48, Revision 32be3bd, WSREP version 31.65, wsrep_31.65)
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.MWXcg66tsv
++ DATADIR=/var/lib/mysql/
++ '[' -f /var/lib/mysql//version_info ']'
++ mysqld --version
++ grep -v wsrep_sst_auth /etc/mysql/node.cnf
+[mysqld]
+
+ignore-db-dir=lost+found
+datadir=/var/lib/mysql
+socket=/tmp/mysql.sock
+skip-host-cache
+
+#coredumper
+#server_id=0
+binlog_format=ROW
+default_storage_engine=InnoDB
+
+innodb_flush_log_at_trx_commit  = 2
+innodb_flush_method             = O_DIRECT
+innodb_file_per_table           = 1
+innodb_autoinc_lock_mode=2
+
+bind_address = 0.0.0.0
+
+wsrep_slave_threads=2
+wsrep_cluster_address=gcomm://
+wsrep_provider=/usr/lib64/galera3/libgalera_smm.so
+
+wsrep_cluster_name=PXC
+wsrep_node_address=172.22.0.67
+wsrep_node_incoming_address=host1:3306
+
+wsrep_sst_method=xtrabackup-v2
+
+[client]
+socket=/tmp/mysql.sock
+
+[sst]
+progress=/var/lib/mysql/sst_in_progress
+ss
++ wsrep_start_position_opt=
++ '[' mysqld = mysqld -a -z '' ']'
+++ _get_config datadir mysqld
+++ local conf=datadir
+++ shift
+++ awk '$1 == "datadir" && /^[^ \t]/ { sub(/^[^ \t]+[ \t]+/, ""); print; exit }'
++++ mktemp -u
+++ mysqld --verbose --help --wsrep-provider=none --log-bin-index=/tmp/tmp.Tqo2pgDUtj
++ DATADIR=/var/lib/mysql/
++ grastate_loc=/var/lib/mysql//grastate.dat
++ '[' -s /var/lib/mysql//grastate.dat -a -d /var/lib/mysql//mysql ']'
+++ grep uuid: /var/lib/mysql//grastate.dat
+++ cut -d: -f2
+++ tr -d ' '
++ uuid=66d9e62e-44e1-11ef-8690-3aefb3021275
+++ grep seqno: /var/lib/mysql//grastate.dat
+++ cut -d: -f2
+++ tr -d ' '
+Skipping wsrep-recover for 66d9e62e-44e1-11ef-8690-3aefb3021275:18 pair
+Assigning 66d9e62e-44e1-11ef-8690-3aefb3021275:18 to wsrep_start_position
++ seqno=18
++ '[' -n 18 ']'
++ '[' 18 -ne -1 ']'
++ echo 'Skipping wsrep-recover for 66d9e62e-44e1-11ef-8690-3aefb3021275:18 pair'
++ echo 'Assigning 66d9e62e-44e1-11ef-8690-3aefb3021275:18 to wsrep_start_position'
++ wsrep_start_position_opt=--wsrep_start_position=66d9e62e-44e1-11ef-8690-3aefb3021275:18
++ '[' -z --wsrep_start_position=66d9e62e-44e1-11ef-8690-3aefb3021275:18 -a -d /var/lib/mysql//mysql ']'
++ '[' '!' -z '' ']'
++ '[' '!' -z '' ']'
++ '[' '!' -z '' ']'
++ CALL_HOME_OPTIONAL_PARAMS+=' -t 7'
++ '[' '!' -z '' ']'
++ CALL_HOME_OPTIONAL_PARAMS+=' -c 2'
++ /call-home.sh -f PRODUCT_FAMILY_PXC -v 5.7.44-31.65-1 -d DOCKER -s el8 -t 7 -c 2
++ :
++ exec mysqld --wsrep_start_position=66d9e62e-44e1-11ef-8690-3aefb3021275:18
+2024-07-18T08:41:13.139482Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2024-07-18T08:41:13.142829Z 0 [Note] mysqld (mysqld 5.7.44-48-57) starting as process 1 ...
+2024-07-18T08:41:13.147971Z 0 [Note] WSREP: Setting wsrep_ready to false
+2024-07-18T08:41:13.148003Z 0 [Note] WSREP: No pre-stored wsrep-start position found. Skipping position initialization.
+2024-07-18T08:41:13.148010Z 0 [Note] WSREP: wsrep_load(): loading provider library '/usr/lib64/galera3/libgalera_smm.so'
+2024-07-18T08:41:13.149088Z 0 [Note] WSREP: wsrep_load(): Galera 3.65(rf47405c) by Codership Oy <info@codership.com> loaded successfully.
+2024-07-18T08:41:13.149167Z 0 [Note] WSREP: CRC-32C: using 64-bit x86 acceleration.
+2024-07-18T08:41:13.149907Z 0 [Note] WSREP: Found saved state: 66d9e62e-44e1-11ef-8690-3aefb3021275:18, safe_to_bootstrap: 1
+2024-07-18T08:41:13.155580Z 0 [Note] WSREP: Passing config to GCS: base_dir = /var/lib/mysql/; base_host = 172.22.0.67; base_port = 4567; cert.log_conflicts = no; cert.optimistic_pa = yes; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 10; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 4; evs.view_forget_timeout = PT24H; gcache.dir = /var/lib/mysql/; gcache.freeze_purge_at_seqno = -1; gcache.keep_pages_count = 0; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /var/lib/mysql//galera.cache; gcache.page_size = 128M; gcache.recover = no; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1; gcs.fc_limit = 100; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0; pc.announce_timeout = PT3S; pc.checksum = false; pc.ignore_quorum = false; pc.ignore_sb = false; pc.npvo = false; pc.recovery = true; pc.version = 0; pc.wait_prim = true; pc.wait_prim_timeout = PT30S; pc.weight = 1; protonet.backend = asio; protonet.version = 0; repl.causal_read_timeout = PT30S; repl.commit_order = 3; repl.key_format = FLAT8; repl.max_ws_size = 2147483647; repl.proto_max = 9; socket.checksum = 2; socket.recv_buf_size = auto; socket.send_buf_size = auto; 
+2024-07-18T08:41:13.193431Z 0 [Note] WSREP: GCache history reset: 66d9e62e-44e1-11ef-8690-3aefb3021275:0 -> 66d9e62e-44e1-11ef-8690-3aefb3021275:18
+2024-07-18T08:41:13.194967Z 0 [Note] WSREP: Assign initial position for certification: 18, protocol version: -1
+2024-07-18T08:41:13.194994Z 0 [Note] WSREP: Preparing to initiate SST/IST
+2024-07-18T08:41:13.194999Z 0 [Note] WSREP: Starting replication
+2024-07-18T08:41:13.195015Z 0 [Note] WSREP: Setting initial position to 66d9e62e-44e1-11ef-8690-3aefb3021275:18
+2024-07-18T08:41:13.195461Z 0 [Note] WSREP: Using CRC-32C for message checksums.
+2024-07-18T08:41:13.195579Z 0 [Note] WSREP: gcomm thread scheduling priority set to other:0 
+2024-07-18T08:41:13.195739Z 0 [Note] WSREP: Fail to access the file (/var/lib/mysql//gvwstate.dat) error (No such file or directory). It is possible if node is booting for first time or re-booting after a graceful shutdown
+2024-07-18T08:41:13.195746Z 0 [Note] WSREP: Restoring primary-component from disk failed. Either node is booting for first time or re-booting after a graceful shutdown
+2024-07-18T08:41:13.195938Z 0 [Note] WSREP: GMCast version 0
+2024-07-18T08:41:13.196058Z 0 [Note] WSREP: (7d47ba46, 'tcp://0.0.0.0:4567') listening at tcp://0.0.0.0:4567
+2024-07-18T08:41:13.196065Z 0 [Note] WSREP: (7d47ba46, 'tcp://0.0.0.0:4567') multicast: , ttl: 1
+2024-07-18T08:41:13.196435Z 0 [Note] WSREP: EVS version 0
+2024-07-18T08:41:13.196543Z 0 [Note] WSREP: gcomm: connecting to group 'PXC', peer ''
+2024-07-18T08:41:13.196578Z 0 [Note] WSREP: start_prim is enabled, turn off pc_recovery
+2024-07-18T08:41:13.196995Z 0 [Note] WSREP: Node 7d47ba46 state primary
+2024-07-18T08:41:13.197022Z 0 [Note] WSREP: Current view of cluster as seen by this node
+view (view_id(PRIM,7d47ba46,1)
+memb {
+	7d47ba46,0
+	}
+joined {
+	}
+left {
+	}
+partitioned {
+	}
+)
+2024-07-18T08:41:13.197028Z 0 [Note] WSREP: Save the discovered primary-component to disk
+2024-07-18T08:41:13.201380Z 0 [Note] WSREP: gcomm: connected
+2024-07-18T08:41:13.201483Z 0 [Note] WSREP: Shifting CLOSED -> OPEN (TO: 0)
+2024-07-18T08:41:13.201739Z 0 [Note] WSREP: Waiting for SST/IST to complete.
+2024-07-18T08:41:13.201997Z 0 [Note] WSREP: New COMPONENT: primary = yes, bootstrap = no, my_idx = 0, memb_num = 1
+2024-07-18T08:41:13.202296Z 0 [Note] WSREP: STATE_EXCHANGE: sent state UUID: 7d48b474-44e1-11ef-9d16-fafa495fffb1
+2024-07-18T08:41:13.202377Z 0 [Note] WSREP: STATE EXCHANGE: sent state msg: 7d48b474-44e1-11ef-9d16-fafa495fffb1
+2024-07-18T08:41:13.202389Z 0 [Note] WSREP: STATE EXCHANGE: got state msg: 7d48b474-44e1-11ef-9d16-fafa495fffb1 from 0 (host1)
+2024-07-18T08:41:13.202413Z 0 [Note] WSREP: Quorum results:
+	version    = 6,
+	component  = PRIMARY,
+	conf_id    = 0,
+	members    = 1/1 (primary/total),
+	act_id     = 18,
+	last_appl. = -1,
+	protocols  = 0/9/3 (gcs/repl/appl),
+	group UUID = 66d9e62e-44e1-11ef-8690-3aefb3021275
+2024-07-18T08:41:13.202437Z 0 [Note] WSREP: Flow-control interval: [100, 100]
+2024-07-18T08:41:13.202446Z 0 [Note] WSREP: Restored state OPEN -> JOINED (18)
+2024-07-18T08:41:13.202494Z 0 [Note] WSREP: Member 0.0 (host1) synced with group.
+2024-07-18T08:41:13.202512Z 0 [Note] WSREP: Shifting JOINED -> SYNCED (TO: 18)
+2024-07-18T08:41:13.202742Z 1 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2024-07-18T08:41:13.202822Z 1 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2024-07-18T08:41:13.202863Z 1 [Note] WSREP: New cluster view: global state: 66d9e62e-44e1-11ef-8690-3aefb3021275:18, view# 1: Primary, number of nodes: 1, my index: 0, protocol version 3
+2024-07-18T08:41:13.202893Z 1 [Note] WSREP: Setting wsrep_ready to true
+2024-07-18T08:41:13.202924Z 0 [Note] WSREP: SST complete, seqno: 18
+2024-07-18T08:41:13.205561Z 0 [Note] InnoDB: PUNCH HOLE support available
+2024-07-18T08:41:13.205594Z 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2024-07-18T08:41:13.205598Z 0 [Note] InnoDB: Uses event mutexes
+2024-07-18T08:41:13.205601Z 0 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+2024-07-18T08:41:13.205603Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.13
+2024-07-18T08:41:13.205614Z 0 [Note] InnoDB: Using Linux native AIO
+2024-07-18T08:41:13.206108Z 0 [Note] InnoDB: Number of pools: 1
+2024-07-18T08:41:13.206360Z 0 [Note] InnoDB: Using CPU crc32 instructions
+2024-07-18T08:41:13.210593Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+2024-07-18T08:41:13.221369Z 0 [Note] InnoDB: Completed initialization of buffer pool
+2024-07-18T08:41:13.227131Z 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2024-07-18T08:41:13.244750Z 0 [Note] InnoDB: Crash recovery did not find the parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite
+2024-07-18T08:41:13.247641Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+2024-07-18T08:41:13.278148Z 0 [Note] InnoDB: Created parallel doublewrite buffer at /var/lib/mysql/xb_doublewrite, size 3932160 bytes
+2024-07-18T08:41:13.374383Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2024-07-18T08:41:13.374524Z 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2024-07-18T08:41:13.426089Z 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2024-07-18T08:41:13.428300Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+2024-07-18T08:41:13.428366Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+2024-07-18T08:41:13.430933Z 0 [Note] InnoDB: Percona XtraDB (http://www.percona.com) 5.7.44-48 started; log sequence number 12447413
+2024-07-18T08:41:13.431362Z 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2024-07-18T08:41:13.432159Z 0 [Note] Plugin 'FEDERATED' is disabled.
+2024-07-18T08:41:13.465979Z 0 [Note] Found ca.pem, server-cert.pem and server-key.pem in data directory. Trying to enable SSL support using them.
+2024-07-18T08:41:13.466015Z 0 [Note] Skipping generation of SSL certificates as certificate files are present in data directory.
+2024-07-18T08:41:13.466021Z 0 [Warning] A deprecated TLS version TLSv1 is enabled. Please use TLSv1.2 or higher.
+2024-07-18T08:41:13.466023Z 0 [Warning] A deprecated TLS version TLSv1.1 is enabled. Please use TLSv1.2 or higher.
+2024-07-18T08:41:13.467521Z 0 [Warning] CA certificate ca.pem is self signed.
+2024-07-18T08:41:13.467620Z 0 [Note] Skipping generation of RSA key pair as key files are present in data directory.
+2024-07-18T08:41:13.467961Z 0 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+2024-07-18T08:41:13.468012Z 0 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+2024-07-18T08:41:13.468056Z 0 [Note] Server socket created on IP: '0.0.0.0'.
+2024-07-18T08:41:13.473489Z 0 [Warning] Insecure configuration for --pid-file: Location '/var/lib/mysql' in the path is accessible to all OS users. Consider choosing a different directory.
+2024-07-18T08:41:13.561750Z 0 [Note] Event Scheduler: Loaded 0 events
+2024-07-18T08:41:13.562247Z 0 [Note] mysqld: ready for connections.
+Version: '5.7.44-48-57'  socket: '/tmp/mysql.sock'  port: 3306  Percona XtraDB Cluster (GPL), Release rel48, Revision 32be3bd, WSREP version 31.65, wsrep_31.65
+2024-07-18T08:41:13.568849Z 1 [Note] WSREP: Initialized wsrep sidno 2
+2024-07-18T08:41:13.568879Z 1 [Note] WSREP: Auto Increment Offset/Increment re-align with cluster membership change (Offset: 1 -> 1) (Increment: 1 -> 1)
+2024-07-18T08:41:13.568965Z 1 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2024-07-18T08:41:13.569055Z 1 [Note] WSREP: Assign initial position for certification: 18, protocol version: 4
+2024-07-18T08:41:13.569217Z 0 [Note] WSREP: Service thread queue flushed.
+2024-07-18T08:41:13.569825Z 1 [Note] WSREP: GCache history reset: 66d9e62e-44e1-11ef-8690-3aefb3021275:0 -> 66d9e62e-44e1-11ef-8690-3aefb3021275:18
+2024-07-18T08:41:13.577803Z 1 [Note] WSREP: Synchronized with group, ready for connections
+2024-07-18T08:41:13.577842Z 1 [Note] WSREP: Setting wsrep_ready to true
+2024-07-18T08:41:13.577854Z 1 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2024-07-18T08:41:13.621667Z 0 [Note] InnoDB: Buffer pool(s) load completed at 240718 16:41:13
+

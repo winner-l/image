@@ -1,0 +1,35 @@
+variables:
+  ip: 'registry.cn-zhangjiakou.aliyuncs.com'
+  workdir: '/home/dev/qingshancloud_microsoft/daidai-cloud-gateway/'
+  targetDir: $workdir/
+  modelName: gateway
+
+before_script:
+  - docker login -u baichuan2080 -p Daidai123456 $ip
+  - cd $workdir
+  - git fetch
+after_script:
+  - mvn clean
+stages:
+  - image_build
+
+job_dev_build:
+  stage: image_build
+  tags:
+    - micro
+
+  script:
+    - git  checkout $CI_BUILD_REF_NAME
+    - git pull
+    - export tagName=$(date '+%y%m%d%H%M%S')
+    - mvn clean package -Dmaven.test.skip=true
+    - cp $targetDir/target/*.jar $workdir/docker/app.jar
+
+    - docker build -t $ip/daidaienv/$modelName:latest -f $workdir/docker/Dockerfile $workdir/docker/
+    - docker push $ip/daidaienv/$modelName:latest
+    # 如果是test分支构建latest镜像
+    - if [ $CI_BUILD_REF_NAME == 'test' ]; then docker build -t $ip/daidaienv/$modelName:$tagName -f $workdir/docker/Dockerfile $workdir/docker/ &&   docker push $ip/daidaienv/$modelName:$tagName ; fi
+  only:
+    - dev
+    - test
+    
